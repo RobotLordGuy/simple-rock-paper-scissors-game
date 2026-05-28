@@ -1,2 +1,1 @@
-# simple-rock-paper-scissors-game
-A very simple rock paper scissors mingame
+AI assisted me in the enhancement of the visual quality.
