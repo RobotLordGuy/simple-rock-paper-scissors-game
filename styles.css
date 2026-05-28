@@ -1,0 +1,160 @@
+/* --- Global & Background --- */
+body {
+    background: radial-gradient(circle at center, #2b2b36 0%, #121217 100%);
+    color: #ffffff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+p {
+    margin: 0px;
+}
+
+/* --- Title Styling --- */
+.title-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.game-title {
+    font-weight: 900;
+    font-size: 60px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    cursor: default;
+    user-select: none;
+    background: linear-gradient(90deg, #00e5ff, #b500ff);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 20px rgba(0, 229, 255, 0.3);
+}
+
+/* --- Layout Containers --- */
+.player-move-buttons-container {
+    margin: 30px 0px 60px 0px;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    position: relative;
+}
+
+.bot-move-buttons-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    opacity: 0.8; /* Make the bot section look slightly distinct */
+}
+
+/* --- Base Button Styles --- */
+button {
+    height: 180px;
+    width: 180px;
+    border-radius: 50%;
+    border: 4px solid rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+}
+
+/* --- Image Styling --- */
+.move-image {
+    height: 100px;
+    width: 100px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.4));
+}
+
+/* --- Player Interactivity (Hover & Active) --- */
+.player-move-buttons-container button {
+    cursor: pointer;
+}
+
+.player-move-buttons-container button:hover {
+    transform: translateY(-15px) scale(1.05);
+    border-color: #00e5ff;
+    box-shadow: 0 15px 30px rgba(0, 229, 255, 0.4), inset 0 0 15px rgba(0, 229, 255, 0.2);
+    background-color: rgba(0, 229, 255, 0.1);
+}
+
+.player-move-buttons-container button:hover .move-image {
+    transform: scale(1.15) rotate(-5deg);
+}
+
+.player-move-buttons-container button:active {
+    transform: translateY(2px) scale(0.95);
+    box-shadow: 0 5px 10px rgba(0, 229, 255, 0.4);
+}
+
+/* --- Bot Button Styling (Non-interactive) --- */
+.bot-move-buttons-container button {
+    cursor: default;
+    border-color: rgba(255, 60, 60, 0.2);
+}
+
+.bot-move-buttons-container button.active-bot-move {
+    /* You can toggle this class later in JS when the bot makes a choice! */
+    border-color: #ff3c3c;
+    box-shadow: 0 0 30px rgba(255, 60, 60, 0.5), inset 0 0 15px rgba(255, 60, 60, 0.3);
+    background-color: rgba(255, 60, 60, 0.15);
+    transform: scale(1.05);
+}
+
+.human-picked {
+    background-color: green;
+    border-color: darkgreen;
+}
+
+.winner-container {
+    margin-top: 50px;
+    height: 100px;
+}
+
+.winner-text {
+    font-weight: 900;
+    font-size: 60px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    cursor: default;
+    user-select: none;
+    /*background: linear-gradient(90deg, #51ff00, #00ffaa);*/
+    /*background: linear-gradient(90deg, #ff0000, #ff9900);*/
+    /*background: linear-gradient(90deg, #999999, #4d4d4d);*/
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 20px rgba(0, 229, 255, 0.3);
+}
+
+.new-game {
+    height: 150px;
+    width: 250px;
+    font-size: 35px;
+    font-weight: 800;
+    color: white;
+    cursor: pointer;
+}
+
+.new-game:hover {
+    transform: translateY(-10px) scale(1.05);
+    border-color: #00e5ff;
+    box-shadow: 0 15px 30px rgba(0, 229, 255, 0.4), inset 0 0 15px rgba(0, 229, 255, 0.2);
+    background-color: rgba(0, 229, 255, 0.1);
+}
+
+.new-game:active {
+    transform: translateY(2px) scale(0.95);
+    box-shadow: 0 5px 10px rgba(0, 229, 255, 0.4);
+}
